@@ -7,14 +7,12 @@
 
 import UIKit
 
-class LockScreenViewController: UIViewController, UIWindowSceneDelegate {
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        print("My scene time is over")
-    }
+class LockScreenViewController: UIViewController {
+    var data: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        data = 100
         let notificationCenter = NotificationCenter.default
         
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
@@ -29,6 +27,8 @@ class LockScreenViewController: UIViewController, UIWindowSceneDelegate {
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        print("Your current progress \(String(describing: data))")
+        data = 1
     }
     
 //    @objc func appWillTerminate() {
@@ -40,6 +40,7 @@ class LockScreenViewController: UIViewController, UIWindowSceneDelegate {
 //    }
     
     @objc func appComeToForeground() {
+        print("Your current progress \(String(describing: data))")
         print("App come to foreground")
         let alert = UIAlertController(title: "Welcome back", message: "Do you want to incubate the same animal?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
