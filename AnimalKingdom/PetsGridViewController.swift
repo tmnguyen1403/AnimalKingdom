@@ -10,6 +10,7 @@ import UIKit
 
 class PetsGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
+    @IBOutlet weak var sanctuaryLabel: UILabel!
     
     var animals = [UIImage]() //images in the assets folder
     
@@ -18,6 +19,9 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        sanctuaryLabel.font = UIFont(name: "Noteworthy-Bold", size: 48)
+        sanctuaryLabel.text = "Sanctuary"
+        
         // Do any additional setup after loading the view.
         //collectionView.backgroundView = nil
         collectionView.delegate = self
