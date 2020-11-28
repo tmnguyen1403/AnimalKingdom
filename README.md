@@ -6,7 +6,7 @@ The following **required** functionality is completed:
 - [ x] Designed the Zoo screen.
 
 ### Demo Lockscreen functionality
-![Lockscreen Demo] (./Gif/demo_lockscreen.gif)
+![Lockscreen Demo](./Gif/demo_lockscreen.gif)
 
 ### Animal Kingdom
 - *Purpose*:
