@@ -1,3 +1,13 @@
+## User Stories - Week1
+
+The following **required** functionality is completed:
+
+- [ x] Implemented lock-screen mechanism when user add new pet.
+- [ x] Designed the Zoo screen.
+
+### Demo Lockscreen functionality
+![Lockscreen Demo] (./Gif/demo_lockscreen.gif)
+
 ### Animal Kingdom
 - *Purpose*:
     - 

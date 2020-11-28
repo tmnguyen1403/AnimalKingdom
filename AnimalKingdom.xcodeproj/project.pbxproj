@@ -14,6 +14,7 @@
 		701B4295256B610200437853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701B4294256B610200437853 /* Assets.xcassets */; };
 		701B4298256B610200437853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4296256B610200437853 /* LaunchScreen.storyboard */; };
 		70AC0C2D2570109F0090FBE0 /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC0C2C2570109F0090FBE0 /* LockScreenViewController.swift */; };
+		70B633732571BBA600E4B11E /* HelperTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B633722571BBA600E4B11E /* HelperTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		701B4297256B610200437853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701B4299256B610200437853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70AC0C2C2570109F0090FBE0 /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
+		70B633722571BBA600E4B11E /* HelperTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		701B428A256B610100437853 /* AnimalKingdom */ = {
 			isa = PBXGroup;
 			children = (
+				70B633712571BB9200E4B11E /* Utitlities */,
 				70AC0C2B25700FB60090FBE0 /* Controllers */,
 				70AC0C2A25700FB20090FBE0 /* Views */,
 				70AC0C2725700FA60090FBE0 /* Models */,
@@ -92,6 +95,14 @@
 				70AC0C2C2570109F0090FBE0 /* LockScreenViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		70B633712571BB9200E4B11E /* Utitlities */ = {
+			isa = PBXGroup;
+			children = (
+				70B633722571BBA600E4B11E /* HelperTimer.swift */,
+			);
+			path = Utitlities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				701B4290256B610100437853 /* ViewController.swift in Sources */,
+				70B633732571BBA600E4B11E /* HelperTimer.swift in Sources */,
 				70AC0C2D2570109F0090FBE0 /* LockScreenViewController.swift in Sources */,
 				701B428C256B610100437853 /* AppDelegate.swift in Sources */,
 				701B428E256B610100437853 /* SceneDelegate.swift in Sources */,
