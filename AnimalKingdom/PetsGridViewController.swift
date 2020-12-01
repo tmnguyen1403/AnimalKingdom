@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Parse
 
 class PetsGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
@@ -34,15 +34,27 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2)/3 //will change depending on phone --> /3 to get 3 images on row. - column spaces
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2) //x1.5 height to be larger than width
-       
+        
+        //get a list of animals from Parse
+        var query = PFQuery(className:"Animal")
+        
+        query.findObjectsInBackground { (animals, error) in
+            if error == nil && animals != nil {
+              print(animals)
+            } else {
+              print(error)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         <#code#>
+         return 2
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath)
+        
+         return cell
      }
      
     /*
