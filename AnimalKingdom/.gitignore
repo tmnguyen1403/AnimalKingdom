@@ -2,10 +2,11 @@ Pods/
 .DS_Store
 *.xcuserstate
 xcuserdata/
-Podfile.lock
 build/
 AnimalKingdom.xcodeproj/xcuserdata
 AnimalKingdom.xcodeproj/xcshareddata
 AnimalKingdom.xcworkspace
 AnimalKingdom.app.dSYM.zip
 AnimalKingdom.ipa
+Podfile.lock
+
