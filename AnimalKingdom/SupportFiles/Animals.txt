@@ -1,0 +1,17 @@
+Duration: time to raise an animal in second
+imageUrl: use the name of asset for now
+
+{"name": "dog", "level": 1, imageUrl: "dog-baby", duration: 1800}
+{"name": "dog", "level": 2, imageUrl: "dog-grown", duration: 3600}
+
+{"name": "elephant", "level": 1, imageUrl: "elephant-baby", duration: 1800}
+{"name": "elephant", "level": 2, imageUrl: "elephant-grown", duration: 3600}
+
+{"name": "frog", "level": 1, imageUrl: "frog-baby", duration: 1800}
+{"name": "frog", "level": 2, imageUrl: "frog-kid", duration: 3600}
+
+{"name": "lion", "level": 1, imageUrl: "lion-baby", duration: 1800}
+{"name": "lion", "level": 2, imageUrl: "lion-old", duration: 3600}
+
+{"name": "tiger", "level": 1, imageUrl: "tiger-baby", duration: 1800}
+{"name": "tiger", "level": 2, imageUrl: "tiger-kid", duration: 3600}
