@@ -13,6 +13,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var sanctuaryLabel: UILabel!
     
     var animals = [UIImage]() //images in the assets folder
+    var animal_list : [Animal] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -36,25 +37,24 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         layout.itemSize = CGSize(width: width, height: width * 3 / 2) //x1.5 height to be larger than width
         
         //get a list of animals from Parse
-        var query = PFQuery(className:"Animal")
-        
-        query.findObjectsInBackground { (animals, error) in
-            if error == nil && animals != nil {
-              print(animals)
-            } else {
-              print(error)
-            }
+        AnimalData.shared().updateData { (error) in
+            print("Error loading animal data \(error)")
+        } completionHandler: {
+            self.collectionView.reloadData()
         }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return 2
+        return AnimalData.shared().animals.count
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath) as! PetCollectionViewCell
         
-         return cell
+        cell.animalView.image = UIImage(named: AnimalData.shared().animals[indexPath.item].imageURL)
+        
+        return cell
      }
      
     /*

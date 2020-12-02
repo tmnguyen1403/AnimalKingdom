@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		701B4293256B610100437853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4291256B610100437853 /* Main.storyboard */; };
 		701B4295256B610200437853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701B4294256B610200437853 /* Assets.xcassets */; };
 		701B4298256B610200437853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4296256B610200437853 /* LaunchScreen.storyboard */; };
+		70BAE3B82577529100A74C4C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3B72577529100A74C4C /* Animal.swift */; };
+		70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3BC25775F1900A74C4C /* AnimalData.swift */; };
+		70E8FBCA25761A21005F0DFD /* Animals.json in Resources */ = {isa = PBXBuildFile; fileRef = 70E8FBC925761A21005F0DFD /* Animals.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		701B4294256B610200437853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		701B4297256B610200437853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701B4299256B610200437853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70BAE3B72577529100A74C4C /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		70BAE3BC25775F1900A74C4C /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
+		70E8FBC925761A21005F0DFD /* Animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animals.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,6 @@
 				67D48CD8436A8DCA2ABAF9F1 /* Pods-AnimalKingdom.debug.xcconfig */,
 				23C5548BD22041A30DC1A7CB /* Pods-AnimalKingdom.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,6 +82,10 @@
 		701B428A256B610100437853 /* AnimalKingdom */ = {
 			isa = PBXGroup;
 			children = (
+				70BAE3BB25775F0200A74C4C /* Data */,
+				70BAE3B62577525E00A74C4C /* Models */,
+				70BAE3B52577525000A74C4C /* Controllers */,
+				70E8FBBD25760C79005F0DFD /* SupportFiles */,
 				701B428B256B610100437853 /* AppDelegate.swift */,
 				701B428D256B610100437853 /* SceneDelegate.swift */,
 				701B428F256B610100437853 /* ViewController.swift */,
@@ -88,6 +97,37 @@
 				4C0796372571A7320083B01D /* PetsGridViewController.swift */,
 			);
 			path = AnimalKingdom;
+			sourceTree = "<group>";
+		};
+		70BAE3B52577525000A74C4C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		70BAE3B62577525E00A74C4C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				70BAE3B72577529100A74C4C /* Animal.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		70BAE3BB25775F0200A74C4C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				70BAE3BC25775F1900A74C4C /* AnimalData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		70E8FBBD25760C79005F0DFD /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				70E8FBC925761A21005F0DFD /* Animals.json */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 		C8F59034727CD328607D2E6C /* Frameworks */ = {
@@ -158,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				701B4298256B610200437853 /* LaunchScreen.storyboard in Resources */,
+				70E8FBCA25761A21005F0DFD /* Animals.json in Resources */,
 				701B4295256B610200437853 /* Assets.xcassets in Resources */,
 				701B4293256B610100437853 /* Main.storyboard in Resources */,
 			);
@@ -217,6 +258,8 @@
 				701B4290256B610100437853 /* ViewController.swift in Sources */,
 				701B428C256B610100437853 /* AppDelegate.swift in Sources */,
 				701B428E256B610100437853 /* SceneDelegate.swift in Sources */,
+				70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */,
+				70BAE3B82577529100A74C4C /* Animal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
