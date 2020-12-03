@@ -12,7 +12,7 @@ class AnimalData {
     
     // MARK: - Properties
     private static let sharedAnimalData = AnimalData()
-    var animals : [Animal]
+    public private(set) var animals : [Animal]
 
     
     private init() {

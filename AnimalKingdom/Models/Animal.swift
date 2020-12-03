@@ -7,7 +7,15 @@
 
 import Foundation
 
-class Animal : Codable {
+class Animal : Codable, Hashable {
+    static func == (lhs: Animal, rhs: Animal) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self).hashValue)
+    }
+    
     var name : String
     var level : Int
     var imageURL : String

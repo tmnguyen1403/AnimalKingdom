@@ -45,6 +45,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     }
     
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return AnimalData.shared().animals.count
      }
