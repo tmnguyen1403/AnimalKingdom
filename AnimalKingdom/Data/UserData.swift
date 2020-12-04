@@ -61,7 +61,23 @@ class UserData {
         }
     }
     
-    public func addPet() {
-        
+    public func updatePetList(newPet: Animal) {
+        self.pets.append(newPet.animalId)
+        self.petUrls.append(newPet.imageURL)
+        self.updatePetListToServer()
+    }
+    
+    // MARK: Always run this after updatePetList
+    public func updatePetListToServer() {
+        //UPDATE TO SERVER
+        if let user = PFUser.current() {
+            user["pets"] = self.pets
+            user.saveInBackground { (status, error) in
+                print("UPDATTE PET FOR user \(status)")
+                if let error = error {
+                    print("ERROR UPDATING PET FOR user \(error.localizedDescription)")
+                }
+            }
+        }
     }
 }

@@ -34,6 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="JxT-Zu-3px"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="c9l-hg-gY5"/>
                     <connections>
                         <segue destination="N8N-uF-O9f" kind="show" identifier="petsViewSegue" id="Bqf-4c-lSc"/>
                     </connections>
@@ -380,6 +381,7 @@
                         <outlet property="imageView" destination="s6F-f1-Hyy" id="BFE-NH-e5J"/>
                         <outlet property="nameLabel" destination="4Ty-kL-xh3" id="xMl-dP-ZQH"/>
                         <outlet property="startTimeLabel" destination="FmV-Jt-Twq" id="2lU-mA-RUU"/>
+                        <segue destination="N8N-uF-O9f" kind="show" identifier="addNewAnimalCompleteSegue" id="HV7-e4-6lZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzO-nM-FFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -387,6 +389,9 @@
             <point key="canvasLocation" x="3363.7681159420295" y="95.758928571428569"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HV7-e4-6lZ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="dog-baby" width="1969" height="2640"/>
         <image name="dog2-baby" width="1969" height="2640"/>

@@ -12,7 +12,7 @@ class LockScreenViewController: UIViewController {
     var animal: Animal!
     
     var data: Int!
-    var timeLimitInSecond : Double = 10.0
+    var timeLimitInSecond : Double = 0.0
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -30,8 +30,7 @@ class LockScreenViewController: UIViewController {
         imageView.image = UIImage(named: animal.imageURL)
         nameLabel.text = animal.name
         
-        completeButton.isEnabled = false
-        data = 100
+        completeButton.isEnabled = true
         // MARK: check if user leave the app
         let notificationCenter = NotificationCenter.default
         
@@ -82,9 +81,12 @@ class LockScreenViewController: UIViewController {
         print("onComplete - add the new animal to user achievements")
         // MARK: DEMO
         // TODO:
-        // 1. Update user from server
-        // 2. Add new pet to user list
-        // 3. 
+        // 1. Stop timer
+        HelperTimer.destroyTimer()
+        // 2. Update user from server & Add new pet to user list
+        UserData.shared().updatePetList(newPet: self.animal)
+        // 4. Go back to PetsGidViewController
+        self.performSegue(withIdentifier: "addNewAnimalCompleteSegue", sender: self)
     }
     
     @IBAction func onCancel(_ sender: Any) {
