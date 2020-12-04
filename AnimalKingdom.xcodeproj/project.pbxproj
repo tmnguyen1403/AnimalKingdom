@@ -17,13 +17,14 @@
 		701B4295256B610200437853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701B4294256B610200437853 /* Assets.xcassets */; };
 		701B4298256B610200437853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4296256B610200437853 /* LaunchScreen.storyboard */; };
 		70653E2C25796C66005192C0 /* TitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */; };
-		70653E3225798AEF005192C0 /* DistinctSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3125798AEF005192C0 /* DistinctSectionsViewController.swift */; };
+		70653E3225798AEF005192C0 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3125798AEF005192C0 /* AddAnimalViewController.swift */; };
 		70653E3925798B54005192C0 /* AnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3825798B53005192C0 /* AnimalCell.swift */; };
 		70653E3E2579B65F005192C0 /* AddAnimalRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3D2579B65F005192C0 /* AddAnimalRecognizer.swift */; };
 		70653E412579B7CA005192C0 /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E402579B7CA005192C0 /* LockScreenViewController.swift */; };
 		70653E462579BF05005192C0 /* HelperTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E452579BF05005192C0 /* HelperTimer.swift */; };
 		70653E4A2579F2E9005192C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E492579F2E9005192C0 /* User.swift */; };
 		70653E4D2579F9EF005192C0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E4C2579F9EF005192C0 /* UserData.swift */; };
+		70653E51257A080B005192C0 /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E50257A080B005192C0 /* LoadingScreenViewController.swift */; };
 		70BAE3B82577529100A74C4C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3B72577529100A74C4C /* Animal.swift */; };
 		70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3BC25775F1900A74C4C /* AnimalData.swift */; };
 		70E8FBCA25761A21005F0DFD /* Animals.json in Resources */ = {isa = PBXBuildFile; fileRef = 70E8FBC925761A21005F0DFD /* Animals.json */; };
@@ -44,13 +45,14 @@
 		701B4297256B610200437853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701B4299256B610200437853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
-		70653E3125798AEF005192C0 /* DistinctSectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistinctSectionsViewController.swift; sourceTree = "<group>"; };
+		70653E3125798AEF005192C0 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		70653E3825798B53005192C0 /* AnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCell.swift; sourceTree = "<group>"; };
 		70653E3D2579B65F005192C0 /* AddAnimalRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalRecognizer.swift; sourceTree = "<group>"; };
 		70653E402579B7CA005192C0 /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
 		70653E452579BF05005192C0 /* HelperTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTimer.swift; sourceTree = "<group>"; };
 		70653E492579F2E9005192C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		70653E4C2579F9EF005192C0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		70653E50257A080B005192C0 /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
 		70BAE3B72577529100A74C4C /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		70BAE3BC25775F1900A74C4C /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
 		70E8FBC925761A21005F0DFD /* Animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animals.json; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 				4C079635257193130083B01D /* PetCollectionViewCell.swift */,
 				4C0796372571A7320083B01D /* PetsGridViewController.swift */,
 				70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */,
-				70653E3125798AEF005192C0 /* DistinctSectionsViewController.swift */,
+				70653E3125798AEF005192C0 /* AddAnimalViewController.swift */,
 				70653E3825798B53005192C0 /* AnimalCell.swift */,
 				70653E3D2579B65F005192C0 /* AddAnimalRecognizer.swift */,
 			);
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				70653E402579B7CA005192C0 /* LockScreenViewController.swift */,
+				70653E50257A080B005192C0 /* LoadingScreenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,8 +299,9 @@
 				70653E2C25796C66005192C0 /* TitleSupplementaryView.swift in Sources */,
 				70653E3E2579B65F005192C0 /* AddAnimalRecognizer.swift in Sources */,
 				701B428C256B610100437853 /* AppDelegate.swift in Sources */,
+				70653E51257A080B005192C0 /* LoadingScreenViewController.swift in Sources */,
 				701B428E256B610100437853 /* SceneDelegate.swift in Sources */,
-				70653E3225798AEF005192C0 /* DistinctSectionsViewController.swift in Sources */,
+				70653E3225798AEF005192C0 /* AddAnimalViewController.swift in Sources */,
 				70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */,
 				70BAE3B82577529100A74C4C /* Animal.swift in Sources */,
 			);

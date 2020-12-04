@@ -25,6 +25,7 @@ class AnimalData {
     
     public func updateData(errorHandler: @escaping (Error?) -> (),completionHandler: @escaping () -> ()) {
         if (self.animals.count == 0) {
+            print("Get animals from server")
             let query = PFQuery(className:"Animal")
            
             query.findObjectsInBackground { (animals, error) in
@@ -42,6 +43,9 @@ class AnimalData {
                     errorHandler(error)
                 }
             }
+        } else {
+            print("No need to get animals from server")
+            completionHandler()
         }
     }
 }

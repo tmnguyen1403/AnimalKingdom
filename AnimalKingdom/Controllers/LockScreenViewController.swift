@@ -81,6 +81,10 @@ class LockScreenViewController: UIViewController {
     @IBAction func onComplete(_ sender: Any) {
         print("onComplete - add the new animal to user achievements")
         // MARK: DEMO
+        // TODO:
+        // 1. Update user from server
+        // 2. Add new pet to user list
+        // 3. 
     }
     
     @IBAction func onCancel(_ sender: Any) {

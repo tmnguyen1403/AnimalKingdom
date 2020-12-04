@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N8N-uF-O9f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aU5-x1-zQd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -22,12 +22,30 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="139" y="118"/>
+            <point key="canvasLocation" x="-978" y="135"/>
+        </scene>
+        <!--Loading Screen View Controller-->
+        <scene sceneID="V8t-TS-Mky">
+            <objects>
+                <viewController id="aU5-x1-zQd" customClass="LoadingScreenViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s31-yM-wy8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JxT-Zu-3px"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="N8N-uF-O9f" kind="show" identifier="petsViewSegue" id="Bqf-4c-lSc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XWL-lU-hdg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1" y="118"/>
         </scene>
         <!--PetsViewController-->
         <scene sceneID="eBq-XB-Qis">
             <objects>
-                <viewController title="PetsViewController" id="N8N-uF-O9f" customClass="PetsGridViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PetsViewController" modalPresentationStyle="fullScreen" id="N8N-uF-O9f" customClass="PetsGridViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tkD-fa-RVb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,6 +113,7 @@
                         <viewLayoutGuide key="safeArea" id="xKV-PJ-T26"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="DIA-Ej-c9Y"/>
                     <connections>
                         <outlet property="collectionView" destination="7Cx-aX-Fi1" id="ir4-iE-chw"/>
                         <outlet property="sanctuaryLabel" destination="xcc-dz-adj" id="QRV-Va-0uL"/>
@@ -268,10 +287,10 @@
             </objects>
             <point key="canvasLocation" x="1690" y="597"/>
         </scene>
-        <!--Distinct Sections View Controller-->
+        <!--Add Animal View Controller-->
         <scene sceneID="j5R-vT-TpO">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="geq-qD-7il" customClass="DistinctSectionsViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="geq-qD-7il" customClass="AddAnimalViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OHo-ho-4A0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -37,35 +37,8 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2) //x1.5 height to be larger than width
         
-        //get a list of animals from Parse
-        let errorHandler : (Error?) -> Void = { (error) in
-            if let error = error {
-                print("Error loading animal data \(error)")
-            } else {
-                print("Unknown error. This is badddd")
-            }
-           
-        }
-        
-        AnimalData.shared().updateData(errorHandler: errorHandler) {
-            print("Get all animals done")
-            
-            UserData.shared().updateData(errorHandler: errorHandler) {
-                print("Get user done")
-                // MARK: get all petUrls
-                let userPets = UserData.shared().pets
-                let animals = AnimalData.shared().animals
-                userPets.forEach { (petId) in
-                    let myPet = animals.first(where: { (animal) -> Bool in
-                        return animal.animalId == petId
-                    })
-                    if let pet = myPet {
-                        self.petUrls.append(pet.imageURL)
-                    }
-                }
-                self.collectionView.reloadData()
-            }
-        }
+        petUrls = UserData.shared().petUrls
+        collectionView.reloadData()
     }
     
 

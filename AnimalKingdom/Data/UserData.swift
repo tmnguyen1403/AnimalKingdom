@@ -13,11 +13,13 @@ class UserData {
     // MARK: - Properties
     private static let sharedUserData = UserData()
     public private(set) var pets : [String]
+    public private(set) var petUrls : [String]
     let keys = ["objectId", "username", "pets"]
 
     
     private init() {
         pets = []
+        petUrls = []
     }
     
     class func shared() -> UserData {
@@ -46,5 +48,20 @@ class UserData {
                 }
             }
         }
+    }
+    
+    public func addPetUrls(animals: [Animal]) {
+        self.pets.forEach { (petId) in
+            let myPet = animals.first(where: { (animal) -> Bool in
+                return animal.animalId == petId
+            })
+            if let pet = myPet {
+                self.petUrls.append(pet.imageURL)
+            }
+        }
+    }
+    
+    public func addPet() {
+        
     }
 }

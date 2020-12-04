@@ -7,7 +7,7 @@ Per-section specific layout example
 
 import UIKit
 
-class DistinctSectionsViewController: UIViewController {
+class AddAnimalViewController: UIViewController {
 
     enum SectionHeaders: String, CaseIterable {
         case first_section = "00:30:00"
@@ -28,17 +28,17 @@ class DistinctSectionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AnimalData.shared().updateData { (error) in
-            print("Error loading animal data \(error)")
-        } completionHandler: {
-            self.configureDataSource()
-        }
+//        AnimalData.shared().updateData { (error) in
+//            print("Error loading animal data \(error)")
+//        } completionHandler: {
+//            self.configureDataSource()
+//        }
         self.configureHierarchy()
         self.configureDataSource()
     }
 }
 
-extension DistinctSectionsViewController {
+extension AddAnimalViewController {
     /// - Tag: PerSection
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
@@ -76,7 +76,7 @@ extension DistinctSectionsViewController {
     }
 }
 
-extension DistinctSectionsViewController {
+extension AddAnimalViewController {
     func configureHierarchy() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -189,7 +189,7 @@ extension DistinctSectionsViewController {
     }
 }
 
-extension DistinctSectionsViewController: UICollectionViewDelegate {
+extension AddAnimalViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
