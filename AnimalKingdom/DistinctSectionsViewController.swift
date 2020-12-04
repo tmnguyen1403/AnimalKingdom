@@ -86,9 +86,11 @@ extension DistinctSectionsViewController {
         collectionView.delegate = self
     }
     
-    @objc func raiseAnimal() {
+    @objc func raiseAnimal(_ sender: AddAnimalRecognizer) {
         print("Touch raiseAnimal")
-        
+        if let objectId = sender.objectId {
+            print("This is \(objectId)")
+        }
         print("End raiseAnimal")
     }
     
@@ -97,7 +99,7 @@ extension DistinctSectionsViewController {
         
         let animalCellRegistration = UICollectionView.CellRegistration<AnimalCell, Animal> { (cell, indexPath, data) in
             // Populate the cell with our item description.
-            //animal image
+            // MARK: animal image
             let image = UIImage(named: data.imageURL)
             var imageView : UIImageView
             if let image = image {
@@ -110,12 +112,16 @@ extension DistinctSectionsViewController {
             imageView.contentMode = .scaleAspectFit
             cell.addSubview(imageView)
 //            cell.contentView.backgroundColor = .blue
+            // MARK: Style cell
             cell.contentView.layer.borderColor = UIColor.black.cgColor
             cell.contentView.layer.borderWidth = 1
             cell.contentView.layer.cornerRadius = 8
             
+            // MARK: Add data for cell
+            cell.objectId = data.objectId
             // MARK: Add cell action
-            let touchInteraction = UITapGestureRecognizer(target: self, action: #selector(self.raiseAnimal))
+            let touchInteraction = AddAnimalRecognizer(target: self, action: #selector(self.raiseAnimal))
+            touchInteraction.objectId = data.objectId
             cell.addGestureRecognizer(touchInteraction)
         }
         

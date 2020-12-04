@@ -19,6 +19,7 @@
 		70653E2C25796C66005192C0 /* TitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */; };
 		70653E3225798AEF005192C0 /* DistinctSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3125798AEF005192C0 /* DistinctSectionsViewController.swift */; };
 		70653E3925798B54005192C0 /* AnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3825798B53005192C0 /* AnimalCell.swift */; };
+		70653E3E2579B65F005192C0 /* AddAnimalRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3D2579B65F005192C0 /* AddAnimalRecognizer.swift */; };
 		70BAE3B82577529100A74C4C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3B72577529100A74C4C /* Animal.swift */; };
 		70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3BC25775F1900A74C4C /* AnimalData.swift */; };
 		70E8FBCA25761A21005F0DFD /* Animals.json in Resources */ = {isa = PBXBuildFile; fileRef = 70E8FBC925761A21005F0DFD /* Animals.json */; };
@@ -41,6 +42,7 @@
 		70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
 		70653E3125798AEF005192C0 /* DistinctSectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistinctSectionsViewController.swift; sourceTree = "<group>"; };
 		70653E3825798B53005192C0 /* AnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCell.swift; sourceTree = "<group>"; };
+		70653E3D2579B65F005192C0 /* AddAnimalRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalRecognizer.swift; sourceTree = "<group>"; };
 		70BAE3B72577529100A74C4C /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		70BAE3BC25775F1900A74C4C /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
 		70E8FBC925761A21005F0DFD /* Animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animals.json; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */,
 				70653E3125798AEF005192C0 /* DistinctSectionsViewController.swift */,
 				70653E3825798B53005192C0 /* AnimalCell.swift */,
+				70653E3D2579B65F005192C0 /* AddAnimalRecognizer.swift */,
 			);
 			path = AnimalKingdom;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				4C0796382571A7320083B01D /* PetsGridViewController.swift in Sources */,
 				701B4290256B610100437853 /* ViewController.swift in Sources */,
 				70653E2C25796C66005192C0 /* TitleSupplementaryView.swift in Sources */,
+				70653E3E2579B65F005192C0 /* AddAnimalRecognizer.swift in Sources */,
 				701B428C256B610100437853 /* AppDelegate.swift in Sources */,
 				701B428E256B610100437853 /* SceneDelegate.swift in Sources */,
 				70653E3225798AEF005192C0 /* DistinctSectionsViewController.swift in Sources */,

@@ -16,12 +16,14 @@ class Animal : Codable, Hashable {
         hasher.combine(ObjectIdentifier(self).hashValue)
     }
     
+    var objectId: String
     var name : String
     var level : Int
     var imageURL : String
     var duration : Int
     
-    init(name : String, level: Int, imageURL: String, duration : Int) {
+    init(objectId: String, name : String, level: Int, imageURL: String, duration : Int) {
+        self.objectId = objectId
         self.name = name
         self.level = level
         self.imageURL = imageURL
@@ -29,13 +31,14 @@ class Animal : Codable, Hashable {
     }
     
     convenience init?(data : [String : Any]) {
-        guard let name = data["name"] as? String,
+        guard let objectId = data["objectId"] as? String,
+              let name = data["name"] as? String,
               let level = data["level"] as? Int,
               let imageURL = data["imageURL"] as? String,
               let duration = data["duration"] as? Int else {
             print("Cannot parse data for this animal")
             return nil
         }
-        self.init(name: name, level: level, imageURL: imageURL, duration: duration)
+        self.init(objectId: objectId, name: name, level: level, imageURL: imageURL, duration: duration)
     }
 }
