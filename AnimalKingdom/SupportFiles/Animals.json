@@ -1,0 +1,13 @@
+[
+    {"name": "dog", "level": 1, "imageURL": "dog-baby", "duration": 1800},
+{"name": "dog", "level": 2," imageURL": "dog-grown", "duration": 3600},
+{"name": "elephant", "level": 1, "imageURL": "elephant-baby", "duration": 1800},
+{"name": "elephant", "level": 2, "imageURL": "elephant-grown", "duration": 3600},
+{"name": "frog", "level": 1, "imageURL": "frog-baby", "duration": 1800},
+{"name": "frog", "level": 2, "imageURL": "frog-kid", "duration": 3600},
+{"name": "lion", "level": 1, "imageURL": "lion-baby", "duration": 1800},
+{"name": "lion", "level": 2, "imageURL": "lion-old", "duration": 3600},
+{"name": "tiger", "level": 1, "imageURL": "tiger-baby", "duration": 1800},
+{"name": "tiger", "level": 2, "imageURL": "tiger-kid", "duration": 3600}
+
+]

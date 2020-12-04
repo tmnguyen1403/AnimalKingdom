@@ -2,30 +2,44 @@
 //  LockScreenViewController.swift
 //  AnimalKingdom
 //
-//  Created by Tom Riddle on 11/26/20.
+//  Created by Tom Riddle on 12/3/20.
 //
 
 import UIKit
 
 class LockScreenViewController: UIViewController {
-    var data: Int!
-    var timeLimitInSecond : Double = 10.0
     
+    var animal: Animal!
+    
+    var data: Int!
+    var timeLimitInSecond : Double = 0.0
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        completeButton.isEnabled = false
-        data = 100
-        //check if user leave the app
+        guard let animal = animal else {
+            print("ERROR: NO ANIMAL DATA FOR LOCKSCREEN")
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        // MARK: animal
+        imageView.image = UIImage(named: animal.imageURL)
+        nameLabel.text = animal.name
+        
+        completeButton.isEnabled = true
+        // MARK: check if user leave the app
         let notificationCenter = NotificationCenter.default
         
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         //notificationCenter.addObserver(self, selector: #selector(appWillTerminate), name: UIApplication.willTerminateNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(appComeToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
-        //start timer
+        // MARK: start timer
+        self.timeLimitInSecond = Double(animal.duration)
         HelperTimer.setStartTime()
         HelperTimer.createStartTimer{
             self.startTimeLabel.text = HelperTimer.updateTimer()
@@ -36,14 +50,14 @@ class LockScreenViewController: UIViewController {
                 HelperTimer.destroyTimer()
             }
         }
-        //endTime
-        endTimeLabel.text = "00:00:\(timeLimitInSecond)"
+        // MARK: endTime
+        endTimeLabel.text = HelperTimer.secondsTo(amount: animal.duration)
     }
     
     @objc func appMovedToBackground() {
         print("App moved to background")
         let alert = UIAlertController(title: "Do you want to leave the app?", message: "If you leave the app, you progress will be cancelled", preferredStyle: .alert)
-        //if yes, stop the clock, 
+        //if yes, stop the clock,
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: {
@@ -53,14 +67,6 @@ class LockScreenViewController: UIViewController {
         print("Your current progress \(String(describing: data))")
         data = 1
     }
-    
-//    @objc func appWillTerminate() {
-//        print("App will terminate")
-//        let alert = UIAlertController(title: "Do you want to close the app?", message: "If you close the app, you progress will be cancelled", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-//        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
-//    }
     
     @objc func appComeToForeground() {
         print("Your current progress \(String(describing: data))")
@@ -74,6 +80,18 @@ class LockScreenViewController: UIViewController {
     @IBAction func onComplete(_ sender: Any) {
         print("onComplete - add the new animal to user achievements")
         // MARK: DEMO
+        // TODO:
+        // 1. Stop timer
+        HelperTimer.destroyTimer()
+        // 2. Update user from server & Add new pet to user list
+        UserData.shared().updatePetList(newPet: self.animal)
+        // 4. Go back to PetsGidViewController
+        self.performSegue(withIdentifier: "addNewAnimalCompleteSegue", sender: self)
+    }
+    
+    @IBAction func onCancel(_ sender: Any) {
+        HelperTimer.destroyTimer()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
