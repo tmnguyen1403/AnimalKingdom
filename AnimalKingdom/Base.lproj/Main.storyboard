@@ -262,17 +262,47 @@
         <!--Distinct Sections View Controller-->
         <scene sceneID="j5R-vT-TpO">
             <objects>
-                <viewController id="geq-qD-7il" customClass="DistinctSectionsViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="geq-qD-7il" customClass="DistinctSectionsViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OHo-ho-4A0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="xfH-qW-Htg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="N4N-bb-b3J"/>
+                    <connections>
+                        <segue destination="nBA-dN-8dh" kind="show" identifier="addAnimalSegue" id="lUs-i9-Ydp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Bw-Hz-fai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2572" y="134"/>
+            <point key="canvasLocation" x="2523" y="118"/>
+        </scene>
+        <!--Lock Screen View Controller-->
+        <scene sceneID="8r1-tA-v1f">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="nBA-dN-8dh" customClass="LockScreenViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9l0-Zp-qgX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4x7-XL-zPJ">
+                                <rect key="frame" x="200" y="643" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="geq-qD-7il" kind="show" id="62s-T9-Qz1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h4n-6S-tZU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Nk4-g3-4zc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AzO-nM-FFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3365" y="96"/>
         </scene>
     </scenes>
     <resources>

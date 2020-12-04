@@ -34,6 +34,7 @@ class DistinctSectionsViewController: UIViewController {
             self.configureDataSource()
         }
         self.configureHierarchy()
+        self.configureDataSource()
     }
 }
 
@@ -91,12 +92,30 @@ extension DistinctSectionsViewController {
         if let objectId = sender.objectId {
             print("This is \(objectId)")
         }
+        performSegue(withIdentifier: "addAnimalSegue", sender: sender)
         print("End raiseAnimal")
     }
     
-    func configureDataSource() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Called prepare for segue")
+        if let controller = segue.destination as? LockScreenViewController,
+           let animalRecognizer = sender as? AddAnimalRecognizer,
+           let objectId = animalRecognizer.objectId {
+            print("Get objectId prepare for segue")
 
+            if let animal = AnimalData.shared().animals.first(where: { (animal) -> Bool in
+                return animal.objectId == objectId
+            }) {
+                controller.animal = animal
+                print("Get controller prepare for segue")
+
+            }
+            
+        }
         
+    }
+    
+    func configureDataSource() {
         let animalCellRegistration = UICollectionView.CellRegistration<AnimalCell, Animal> { (cell, indexPath, data) in
             // Populate the cell with our item description.
             // MARK: animal image
