@@ -1,3 +1,21 @@
+## User Stories - Week2
+
+The following **required** functionality is completed:
+
+- [ x] Implemented add new animal screen.
+- [ x] Implemented lock screen.
+- [ x] Updated user's pets after finishing hatching.
+
+## User Stories - Week1
+
+The following **required** functionality is completed:
+
+- [ x] Implemented lock-screen mechanism when user add new pet.
+- [ x] Designed the Zoo screen.
+
+### Demo Lockscreen functionality
+![Lockscreen Demo](./Gif/demo_1.gif)
+
 ### Animal Kingdom
 - *Purpose*:
     - 
@@ -104,7 +122,7 @@ Anyone who wants to reduce screen time on their phones can use this app
 | username | String  | unique username  |
 | password  | String  | User password |
 | image | File  | profile picture of user |
-| pets | Array String | array of pets' id|
+| pets | Array String | array of animal's ids|
 | friends | Array String | array of friends' id|
 
 | CRUD | HTTP Verb | Example |
@@ -116,30 +134,19 @@ Anyone who wants to reduce screen time on their phones can use this app
 #### Pets   
 | Property | Type | Description|
 | ------------- | ------------- |------------- |
-| petId | String  | unique id for pet  |
+| objectId | String  | unique id for pet  |
+| animalId | String  | petname + level  |
 | name | String  | pet's name|
-| image | File  | pet image |
-| incubate-time  | Number   | Time to incubate the pet |
+| level | Int  | pet's level|
+| imageURL | String  | pet image's URL |
+| duration  | Int   | Incubation time |
+
 
 | CRUD | HTTP Verb | Example |
 | ------------- | ------------- |------------- |
-| Create  | petPost  | Creates a new pet for a user |
-| Read  | petGet  | Gets the pets a user has |
-| Update | petPut | Updates user feed of pets |
+| Read  | petGet  | Gets all the pets |
 
-
-
---------------------------------------------------
-| Property | Type | Description |
-| ------------- | ------------- |------------- |
-| petID | String/Number | the id of the pet |
-| petHatch | Number  | Time it takes for pet to hatch |
-| petRender  | File  | Image of pet |
-| petCaption | String | Description of pet |
 -------------------------------------------------------
-
-
-
 
 ### Networking
 #### List of network request by screen
@@ -160,6 +167,7 @@ Anyone who wants to reduce screen time on their phones can use this app
 * Signup Screen  
     * (Create/POST) Create new user
 * Zoo Screen  
-    * (Create/POST) Create new achievement for user
     * (Read/GET) Get pets' information
+* Lock Screen  
+    * (Create/POST) Update new pet for user
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
