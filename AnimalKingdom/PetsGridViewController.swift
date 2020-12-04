@@ -14,6 +14,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var animals = [UIImage]() //images in the assets folder
     var animal_list : [Animal] = []
+    var petUrls : [String] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -37,23 +38,45 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         layout.itemSize = CGSize(width: width, height: width * 3 / 2) //x1.5 height to be larger than width
         
         //get a list of animals from Parse
-        AnimalData.shared().updateData { (error) in
-            print("Error loading animal data \(error)")
-        } completionHandler: {
-            self.collectionView.reloadData()
+        let errorHandler : (Error?) -> Void = { (error) in
+            if let error = error {
+                print("Error loading animal data \(error)")
+            } else {
+                print("Unknown error. This is badddd")
+            }
+           
         }
-
+        
+        AnimalData.shared().updateData(errorHandler: errorHandler) {
+            print("Get all animals done")
+            
+            UserData.shared().updateData(errorHandler: errorHandler) {
+                print("Get user done")
+                // MARK: get all petUrls
+                let userPets = UserData.shared().pets
+                let animals = AnimalData.shared().animals
+                userPets.forEach { (petId) in
+                    let myPet = animals.first(where: { (animal) -> Bool in
+                        return animal.animalId == petId
+                    })
+                    if let pet = myPet {
+                        self.petUrls.append(pet.imageURL)
+                    }
+                }
+                self.collectionView.reloadData()
+            }
+        }
     }
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return AnimalData.shared().animals.count
+        return petUrls.count
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath) as! PetCollectionViewCell
         
-        cell.animalView.image = UIImage(named: AnimalData.shared().animals[indexPath.item].imageURL)
+        cell.animalView.image = UIImage(named: petUrls[indexPath.item])
         
         return cell
      }

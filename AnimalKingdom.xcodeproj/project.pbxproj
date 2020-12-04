@@ -23,6 +23,7 @@
 		70653E412579B7CA005192C0 /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E402579B7CA005192C0 /* LockScreenViewController.swift */; };
 		70653E462579BF05005192C0 /* HelperTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E452579BF05005192C0 /* HelperTimer.swift */; };
 		70653E4A2579F2E9005192C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E492579F2E9005192C0 /* User.swift */; };
+		70653E4D2579F9EF005192C0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E4C2579F9EF005192C0 /* UserData.swift */; };
 		70BAE3B82577529100A74C4C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3B72577529100A74C4C /* Animal.swift */; };
 		70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3BC25775F1900A74C4C /* AnimalData.swift */; };
 		70E8FBCA25761A21005F0DFD /* Animals.json in Resources */ = {isa = PBXBuildFile; fileRef = 70E8FBC925761A21005F0DFD /* Animals.json */; };
@@ -49,6 +50,7 @@
 		70653E402579B7CA005192C0 /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
 		70653E452579BF05005192C0 /* HelperTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTimer.swift; sourceTree = "<group>"; };
 		70653E492579F2E9005192C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		70653E4C2579F9EF005192C0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		70BAE3B72577529100A74C4C /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		70BAE3BC25775F1900A74C4C /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
 		70E8FBC925761A21005F0DFD /* Animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animals.json; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				70BAE3BC25775F1900A74C4C /* AnimalData.swift */,
+				70653E4C2579F9EF005192C0 /* UserData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				4C079636257193130083B01D /* PetCollectionViewCell.swift in Sources */,
 				70653E412579B7CA005192C0 /* LockScreenViewController.swift in Sources */,
 				70653E3925798B54005192C0 /* AnimalCell.swift in Sources */,
+				70653E4D2579F9EF005192C0 /* UserData.swift in Sources */,
 				70653E462579BF05005192C0 /* HelperTimer.swift in Sources */,
 				4C0796382571A7320083B01D /* PetsGridViewController.swift in Sources */,
 				701B4290256B610100437853 /* ViewController.swift in Sources */,
