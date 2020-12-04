@@ -329,6 +329,9 @@
                                 <rect key="frame" x="116" y="628" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onComplete:" destination="nBA-dN-8dh" eventType="touchUpInside" id="eao-mw-5QJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4x7-XL-zPJ">
                                 <rect key="frame" x="272" y="639" width="48" height="30"/>
