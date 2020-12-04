@@ -12,7 +12,6 @@
 		52D73A964325244C588EBDBF /* Pods_AnimalKingdom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA4215CB7ED3AAA320E9083 /* Pods_AnimalKingdom.framework */; };
 		701B428C256B610100437853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B428B256B610100437853 /* AppDelegate.swift */; };
 		701B428E256B610100437853 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B428D256B610100437853 /* SceneDelegate.swift */; };
-		701B4290256B610100437853 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701B428F256B610100437853 /* ViewController.swift */; };
 		701B4293256B610100437853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4291256B610100437853 /* Main.storyboard */; };
 		701B4295256B610200437853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701B4294256B610200437853 /* Assets.xcassets */; };
 		701B4298256B610200437853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4296256B610200437853 /* LaunchScreen.storyboard */; };
@@ -39,7 +38,6 @@
 		701B4288256B610100437853 /* AnimalKingdom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalKingdom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		701B428B256B610100437853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		701B428D256B610100437853 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		701B428F256B610100437853 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		701B4292256B610100437853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		701B4294256B610200437853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		701B4297256B610200437853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				70E8FBBD25760C79005F0DFD /* SupportFiles */,
 				701B428B256B610100437853 /* AppDelegate.swift */,
 				701B428D256B610100437853 /* SceneDelegate.swift */,
-				701B428F256B610100437853 /* ViewController.swift */,
 				701B4291256B610100437853 /* Main.storyboard */,
 				701B4294256B610200437853 /* Assets.xcassets */,
 				701B4296256B610200437853 /* LaunchScreen.storyboard */,
@@ -294,7 +291,6 @@
 				70653E4D2579F9EF005192C0 /* UserData.swift in Sources */,
 				70653E462579BF05005192C0 /* HelperTimer.swift in Sources */,
 				4C0796382571A7320083B01D /* PetsGridViewController.swift in Sources */,
-				701B4290256B610100437853 /* ViewController.swift in Sources */,
 				70653E4A2579F2E9005192C0 /* User.swift in Sources */,
 				70653E2C25796C66005192C0 /* TitleSupplementaryView.swift in Sources */,
 				70653E3E2579B65F005192C0 /* AddAnimalRecognizer.swift in Sources */,

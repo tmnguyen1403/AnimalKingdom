@@ -7,5 +7,4 @@ target 'AnimalKingdom' do
 
   # Pods for AnimalKingdom
   pod 'Parse'
-  pod 'AlamofireImage'
 end

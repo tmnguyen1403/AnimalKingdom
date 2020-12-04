@@ -9,26 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Lock Screen View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="completeButton" destination="RfM-fC-Kgo" id="9sg-no-ZZi"/>
-                        <outlet property="endTimeLabel" destination="gZm-4v-Ac5" id="Up8-3O-GJa"/>
-                        <outlet property="startTimeLabel" destination="Fkn-tX-fvZ" id="E6E-be-08i"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-978" y="135"/>
-        </scene>
         <!--Loading Screen View Controller-->
         <scene sceneID="V8t-TS-Mky">
             <objects>
@@ -169,7 +149,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="place 3" id="hM1-rj-dmX">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="161"/>
+                                    <rect key="frame" x="30" y="0.0" width="374" height="161"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
