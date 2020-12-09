@@ -11,4 +11,5 @@ class PetCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var animalView: UIImageView!
+    @IBOutlet weak var animalNameLabel: UILabel!
 }

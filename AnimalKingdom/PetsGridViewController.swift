@@ -10,32 +10,26 @@ import Parse
 
 class PetsGridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
  
-    @IBOutlet weak var sanctuaryLabel: UILabel!
     
     var animals = [UIImage]() //images in the assets folder
     var animal_list : [Animal] = []
     var petUrls : [String] = []
+    
+    // MARK: layout prepare
+    let columns: CGFloat = 3.0
+    let inset: CGFloat = 8.0
+    let spacing: CGFloat = 8.0
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sanctuaryLabel.font = UIFont(name: "Noteworthy-Bold", size: 48)
-        sanctuaryLabel.text = "Sanctuary"
-        
         // Do any additional setup after loading the view.
         //collectionView.backgroundView = nil
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumLineSpacing = 4 //controls the space in between rows
-        layout.minimumInteritemSpacing = 4
-        
-        let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2)/3 //will change depending on phone --> /3 to get 3 images on row. - column spaces
-        
-        layout.itemSize = CGSize(width: width, height: width * 3 / 2) //x1.5 height to be larger than width
         
         petUrls = UserData.shared().petUrls
         collectionView.reloadData()
@@ -50,18 +44,33 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath) as! PetCollectionViewCell
         
         cell.animalView.image = UIImage(named: petUrls[indexPath.item])
+        cell.animalNameLabel.text = "Uknown Specie"
+        // MARK: get animal name
+        if let animal = AnimalData.shared().animals.first(where: { (animal) -> Bool in
+            return animal.imageURL == petUrls[indexPath.item]
+        }) {
+            cell.animalNameLabel.text = animal.name
+        }
+        
         
         return cell
      }
-     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+extension PetsGridViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("columns in sizeforItem \(columns) \(spacing)")
+        let width = Int((collectionView.frame.width / columns) - (inset + spacing))
+        
+        return CGSize(width: width, height: width)
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return spacing
+    }
 }
