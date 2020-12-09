@@ -10,9 +10,12 @@ import UIKit
 class LockScreenViewController: UIViewController {
     
     var animal: Animal!
-    
     var data: Int!
     var timeLimitInSecond : Double = 0.0
+    
+    //MARK: Data for level up
+    var isLevelUp: Bool = false
+    var petIndex: Int = -1
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -84,7 +87,11 @@ class LockScreenViewController: UIViewController {
         // 1. Stop timer
         HelperTimer.destroyTimer()
         // 2. Update user from server & Add new pet to user list
-        UserData.shared().updatePetList(newPet: self.animal)
+        if (self.isLevelUp) {
+            UserData.shared().replacePet(at: self.petIndex, with: self.animal)
+        } else {
+            UserData.shared().updatePetList(newPet: self.animal)
+        }
         // 4. Go back to PetsGidViewController
         self.performSegue(withIdentifier: "addNewAnimalCompleteSegue", sender: self)
     }

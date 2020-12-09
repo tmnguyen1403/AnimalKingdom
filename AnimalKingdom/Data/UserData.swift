@@ -50,6 +50,15 @@ class UserData {
         }
     }
     
+    public func replacePet(at index: Int, with pet: Animal) {
+        if (index >= 0  && index < self.pets.count) {
+            self.pets[index] = pet.animalId
+            self.petUrls[index] = pet.imageURL
+        } else {
+            print("Invalid index")
+        }
+    }
+    
     public func addPetUrls(animals: [Animal]) {
         self.pets.forEach { (petId) in
             let myPet = animals.first(where: { (animal) -> Bool in
