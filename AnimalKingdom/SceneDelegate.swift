@@ -48,7 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("Scene did enter background. Stop timer, user progress")
         
     }
-
+    
 
 }
 
