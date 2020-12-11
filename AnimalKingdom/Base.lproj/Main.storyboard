@@ -16,21 +16,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-4P-M8a">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-ox-1ol">
+                                <rect key="frame" x="0.0" y="54" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="lix-iI-Gei"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QFc-d2-3QV">
+                                <rect key="frame" x="0.0" y="702" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="1x9-dA-xSo"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mf2-y9-c9v">
+                                <rect key="frame" x="0.0" y="373" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="GIN-WE-JpK"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JxT-Zu-3px"/>
+                        <color key="backgroundColor" red="0.62372198030287296" green="0.7788783482142857" blue="0.079032437451601531" alpha="0.59258935702875404" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QCP-4P-M8a" firstAttribute="top" secondItem="s31-yM-wy8" secondAttribute="top" id="6go-b7-242"/>
-                            <constraint firstItem="QCP-4P-M8a" firstAttribute="trailing" secondItem="JxT-Zu-3px" secondAttribute="trailing" id="C2i-Yy-AqS"/>
-                            <constraint firstAttribute="bottom" secondItem="QCP-4P-M8a" secondAttribute="bottom" id="f1h-Pf-HUI"/>
-                            <constraint firstItem="QCP-4P-M8a" firstAttribute="leading" secondItem="JxT-Zu-3px" secondAttribute="leading" id="pZE-gR-Wjw"/>
+                            <constraint firstItem="JxT-Zu-3px" firstAttribute="bottom" secondItem="QFc-d2-3QV" secondAttribute="bottom" constant="10" id="8gV-bc-22f"/>
+                            <constraint firstItem="zfj-ox-1ol" firstAttribute="top" secondItem="JxT-Zu-3px" secondAttribute="top" constant="10" id="BfN-wi-JHx"/>
+                            <constraint firstItem="mf2-y9-c9v" firstAttribute="centerY" secondItem="s31-yM-wy8" secondAttribute="centerY" id="DaA-UN-nAn"/>
+                            <constraint firstItem="zfj-ox-1ol" firstAttribute="centerX" secondItem="s31-yM-wy8" secondAttribute="centerX" id="GgG-Ff-BeV"/>
+                            <constraint firstItem="QFc-d2-3QV" firstAttribute="centerX" secondItem="s31-yM-wy8" secondAttribute="centerX" id="H7K-Pj-rK9"/>
+                            <constraint firstItem="QFc-d2-3QV" firstAttribute="trailing" secondItem="JxT-Zu-3px" secondAttribute="trailing" id="SBL-kZ-BEy"/>
+                            <constraint firstAttribute="trailing" secondItem="mf2-y9-c9v" secondAttribute="trailing" id="VCl-z6-8Z6"/>
+                            <constraint firstItem="QFc-d2-3QV" firstAttribute="leading" secondItem="JxT-Zu-3px" secondAttribute="leading" id="VVY-i8-22k"/>
+                            <constraint firstItem="mf2-y9-c9v" firstAttribute="centerX" secondItem="s31-yM-wy8" secondAttribute="centerX" id="YZe-cd-dXs"/>
+                            <constraint firstItem="mf2-y9-c9v" firstAttribute="leading" secondItem="s31-yM-wy8" secondAttribute="leading" id="bdw-Gs-Vhv"/>
+                            <constraint firstItem="zfj-ox-1ol" firstAttribute="leading" secondItem="s31-yM-wy8" secondAttribute="leading" id="pf7-ZR-Bmz"/>
+                            <constraint firstAttribute="trailing" secondItem="zfj-ox-1ol" secondAttribute="trailing" id="sWr-Hh-nA0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JxT-Zu-3px"/>
                     </view>
                     <navigationItem key="navigationItem" id="c9l-hg-gY5"/>
                     <connections>
+                        <outlet property="dogImage" destination="zfj-ox-1ol" id="TBa-dW-FBn"/>
+                        <outlet property="elephantImage" destination="QFc-d2-3QV" id="Gma-c0-l3i"/>
+                        <outlet property="tigerImage" destination="mf2-y9-c9v" id="JYv-mp-N5t"/>
                         <segue destination="RLo-m9-Isd" kind="show" identifier="tabBarSegue" id="ARV-Zc-TIh"/>
                     </connections>
                 </viewController>
@@ -120,7 +147,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xKV-PJ-T26"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qkH-ku-8Px"/>
+                    <tabBarItem key="tabBarItem" title="Kingdom" image="tray.full.fill" catalog="system" id="qkH-ku-8Px" userLabel="Sanctuary"/>
                     <navigationItem key="navigationItem" title="Sanctuary" id="DIA-Ej-c9Y">
                         <barButtonItem key="rightBarButtonItem" title="Add New Pet" image="plus.app.fill" catalog="system" id="4Bn-Dp-1Hc"/>
                     </navigationItem>
@@ -296,7 +323,7 @@
             </objects>
             <point key="canvasLocation" x="3901" y="992"/>
         </scene>
-        <!--Item-->
+        <!--New Pet-->
         <scene sceneID="j5R-vT-TpO">
             <objects>
                 <viewController restorationIdentifier="AddAnimalViewController" storyboardIdentifier="AddAnimalViewController" modalPresentationStyle="fullScreen" id="geq-qD-7il" customClass="AddAnimalViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
@@ -306,7 +333,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xfH-qW-Htg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="uea-1P-yfN"/>
+                    <tabBarItem key="tabBarItem" title="New Pet" image="plus.app" catalog="system" id="uea-1P-yfN"/>
                     <navigationItem key="navigationItem" id="N4N-bb-b3J"/>
                     <connections>
                         <segue destination="nBA-dN-8dh" kind="show" identifier="addAnimalSegue" id="lUs-i9-Ydp"/>
@@ -470,12 +497,13 @@
         <image name="Level1" width="77" height="137"/>
         <image name="dog-baby" width="1969" height="2640"/>
         <image name="dog2-baby" width="1969" height="2640"/>
-        <image name="logo" width="239" height="211"/>
         <image name="place" width="1080" height="1920"/>
         <image name="place 3" width="1300" height="918"/>
         <image name="place3" width="492" height="351"/>
         <image name="place4" width="706" height="490"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
+        <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
