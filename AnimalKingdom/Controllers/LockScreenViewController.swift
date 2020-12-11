@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol LockScreenDelegate: class {
+    func onCompleteIncubation()
+    func onCancelIncubation()
+}
+
 class LockScreenViewController: UIViewController {
     
     var animal: Animal!
@@ -22,6 +27,13 @@ class LockScreenViewController: UIViewController {
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
+    
+    var userAlert : UIAlertController!
+    var isLockButtonPressed: Bool = false
+    
+    //MARK: delegate
+    weak var delegate: LockScreenDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let animal = animal else {
@@ -35,15 +47,26 @@ class LockScreenViewController: UIViewController {
         
         completeButton.isEnabled = true
         // MARK: check if user leave the app
+        // MARK: observer when scene enter background
         let notificationCenter = NotificationCenter.default
         
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(sceneWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
         //notificationCenter.addObserver(self, selector: #selector(appWillTerminate), name: UIApplication.willTerminateNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(appComeToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        //will not notify when swiping down,
+        notificationCenter.addObserver(self, selector: #selector(cancelIncubation), name: UIScene.didEnterBackgroundNotification, object: nil)
+        //only notify when pressing lock screen button,
+        notificationCenter.addObserver(self, selector: #selector(lostProtectedData), name:  UIApplication.protectedDataWillBecomeUnavailableNotification, object: nil)
         
         // MARK: start timer
         self.timeLimitInSecond = Double(animal.duration)
         HelperTimer.setStartTime()
+        setupTimerForClock()
+        // MARK: endTime
+        endTimeLabel.text = HelperTimer.secondsTo(amount: animal.duration)
+    }
+    
+    func setupTimerForClock() {
         HelperTimer.createStartTimer{
             self.startTimeLabel.text = HelperTimer.updateTimer()
             if HelperTimer.didWaitTimePass(second: self.timeLimitInSecond) {
@@ -53,31 +76,59 @@ class LockScreenViewController: UIViewController {
                 HelperTimer.destroyTimer()
             }
         }
-        // MARK: endTime
-        endTimeLabel.text = HelperTimer.secondsTo(amount: animal.duration)
     }
     
-    @objc func appMovedToBackground() {
-        print("App moved to background")
-        let alert = UIAlertController(title: "Do you want to leave the app?", message: "If you leave the app, you progress will be cancelled", preferredStyle: .alert)
-        //if yes, stop the clock,
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: {
-            HelperTimer.destroyTimer()
-            HelperTimer.setStartTime()
+    // MARK: Cases' handler when user leaving the app
+    
+    // MARK: called when receive protectedDataWillBecomeUnavailableNotification
+    @objc func lostProtectedData() {
+        print("lostProtectedData called")
+        setupTimerForClock()
+        self.userAlert?.dismiss(animated: true, completion: {
+            self.userAlert = nil
         })
-        print("Your current progress \(String(describing: data))")
-        data = 1
+        self.isLockButtonPressed = true
+    }
+
+    // MARK: called when receive didEnterBackgroundNotification
+    @objc func cancelIncubation() {
+        print("cancelIncubation did Enterbackground")
+        HelperTimer.destroyTimer()
+        self.startTimeLabel.text = "00:00:00"
+        self.userAlert?.dismiss(animated: true, completion: {
+            self.userAlert = nil
+        })
+    }
+    
+    
+    
+    @objc func sceneWillResignActive() {
+        print("sceneWillResignActive")
+        self.userAlert = UIAlertController(title: "🐶WARNING🐱", message: "Leaving the app will cancel your current incubation", preferredStyle: .alert)
+        self.userAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(self.userAlert, animated: true, completion: nil)
     }
     
     @objc func appComeToForeground() {
-        print("Your current progress \(String(describing: data))")
         print("App come to foreground")
-        let alert = UIAlertController(title: "Welcome back", message: "Do you want to incubate the same animal?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        if (self.isLockButtonPressed) {
+            self.isLockButtonPressed = false
+            return
+        }
+        
+        self.userAlert = UIAlertController(title: "🙊Oh No! Your incubation has failed🙈", message: "Do you want to start over?", preferredStyle: .alert)
+        
+
+        self.userAlert.addAction(UIAlertAction(title: "Yes", style: .default){ (action) in
+            HelperTimer.setStartTime()
+            self.setupTimerForClock()
+        })
+//
+        self.userAlert.addAction(UIAlertAction(title: "No", style: .cancel){ (action) in
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        self.present(self.userAlert, animated: true, completion: nil)
     }
     
     @IBAction func onComplete(_ sender: Any) {
@@ -93,12 +144,11 @@ class LockScreenViewController: UIViewController {
             UserData.shared().updatePetList(newPet: self.animal)
         }
         // 4. Go back to PetsGidViewController
-        self.performSegue(withIdentifier: "addNewAnimalCompleteSegue", sender: self)
+        delegate?.onCompleteIncubation()
     }
     
     @IBAction func onCancel(_ sender: Any) {
         HelperTimer.destroyTimer()
-        self.dismiss(animated: true, completion: nil)
+        delegate?.onCancelIncubation()
     }
-    
 }

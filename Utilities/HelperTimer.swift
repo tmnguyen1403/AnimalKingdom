@@ -13,7 +13,6 @@ import Foundation
 
 class HelperTimer {
     private static var startTime : Date = Date();
-    private static var connectTime : Date = Date();
     private static var callClock : Timer!
     
     public static func createStartTimer(completion:  (() -> ())? ) {
@@ -22,7 +21,7 @@ class HelperTimer {
             return
         }
         callClock = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (callClock) in
-            print("Start timer at \(connectTime)")
+            print("Start timer at \(startTime)")
             if let completion = completion {
                 completion()
             }
@@ -32,6 +31,7 @@ class HelperTimer {
     public static func destroyTimer() {
         if callClock != nil{
             callClock!.invalidate()
+            
             print("CallTimer: destroy startTimer")
             callClock = nil
         }
@@ -39,10 +39,6 @@ class HelperTimer {
     
     public static func setStartTime() {
         startTime = Date();
-    }
-    
-    public static func setConnectTime() {
-        connectTime = Date();
     }
     
     //use this to cancel the call passing time limit (unit: minute)
