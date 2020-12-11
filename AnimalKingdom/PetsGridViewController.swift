@@ -45,12 +45,14 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         cell.animalView.image = UIImage(named: petUrls[indexPath.item])
         cell.animalNameLabel.text = "Uknown Specie"
+        
         // MARK: get animal name
         if let animal = AnimalData.shared().animals.first(where: { (animal) -> Bool in
             return animal.imageURL == petUrls[indexPath.item]
         }) {
             cell.animal = animal
             cell.animalNameLabel.text = animal.name
+            //cell.animalNameLabel.sizeToFit()
             cell.setLevelImageView()
             // MARK: interaction when click on cell
             let tapRecognizer = AddAnimalRecognizer(target: self, action: #selector(levelUp))
