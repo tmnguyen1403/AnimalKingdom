@@ -24,6 +24,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Hi I am viewDidLoad")
 
         // Do any additional setup after loading the view.
         //collectionView.backgroundView = nil
@@ -31,15 +32,44 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.dataSource = self
         
         
-        petUrls = UserData.shared().petUrls
-        collectionView.reloadData()
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        print("Hi I am viewWillAppear")
+        //MARK: Loading animation
+        //We have to manually add every single item of our data in a certain interval for the animation to work
+        let userData = UserData.shared()
+        var indexCounter = 0
+        
+        //MARK: When adding new animal from LockScreenViewController, only animate the new cell
+        if (userData.hasNewPet) {
+            self.petUrls = userData.petUrls
+            self.petUrls.removeLast()
+            print("controller petUrls vs userData petUrls: \(self.petUrls.count) : \(userData.petUrls.count)")
+            indexCounter = self.petUrls.count
+            userData.resetHasNewPet()
+        }
+        
+        //MARK: start animation
+        if (userData.petUrls.count > self.petUrls.count) {
+            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (timer) in
+                self.petUrls.append(userData.petUrls[indexCounter])
+                self.collectionView?.insertItems(at: [IndexPath(item: indexCounter, section: 0)])
+                self.collectionView?.scrollToItem(at: IndexPath(item: indexCounter, section: 0), at: .bottom, animated: true)
+                print("call timer \(indexCounter)")
+                indexCounter += 1
+                if (indexCounter == userData.petUrls.count) {
+                    timer.invalidate()
+                }
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return petUrls.count
      }
      
+
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath) as! PetCollectionViewCell
         
@@ -68,6 +98,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         let maxLevel: Int = 2
         if let animal = sender.animal {
             if (animal.level < maxLevel) {
+                
                 print("I will level up your animal")
                 //MARK: Find the corresponding level up animal
                 let animalId = "\(animal.name)-\(animal.level+1)"
