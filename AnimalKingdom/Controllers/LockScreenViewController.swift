@@ -9,6 +9,7 @@ import UIKit
 
 protocol LockScreenDelegate: class {
     func onCompleteIncubation()
+    func onCancelIncubation()
 }
 
 class LockScreenViewController: UIViewController {
@@ -148,7 +149,6 @@ class LockScreenViewController: UIViewController {
     
     @IBAction func onCancel(_ sender: Any) {
         HelperTimer.destroyTimer()
-        self.dismiss(animated: true, completion: nil)
+        delegate?.onCancelIncubation()
     }
-    
 }
