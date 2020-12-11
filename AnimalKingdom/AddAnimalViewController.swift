@@ -197,6 +197,7 @@ extension AddAnimalViewController: LockScreenDelegate {
             print("AddAnimalViewControllerLockScreenDelegate dismissed")
         })
         
+        //MARK: Show PetsGridViewController using tabBarController
         if let controllers = self.tabBarController?.viewControllers {
             print("Hey I got tabbar")
 
@@ -212,7 +213,10 @@ extension AddAnimalViewController: LockScreenDelegate {
             
         }
     }
-    func showPetViewController() {
-        
+    
+    func onCancelIncubation() {
+        self.dismiss(animated: true, completion: {
+            print("PetsGridViewController onCancelIncubation dismissed")
+        })
     }
 }
