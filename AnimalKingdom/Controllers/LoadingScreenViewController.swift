@@ -75,14 +75,3 @@ class LoadingScreenViewController: UIViewController {
         })
     }
 }
-
-extension UIImageView {
-    func setImage(_ newImage: UIImage?, animated: Bool = true, duration: Double,  completion: ((Bool) -> Void)?) {
-        UIView.transition(with: self,
-                          duration: duration,
-                          options: .transitionCrossDissolve,
-                          animations: { self.image = newImage },
-                          completion: completion)
-    }
-}
-

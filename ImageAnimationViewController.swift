@@ -10,7 +10,6 @@ import UIKit
 class ImageAnimationViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageView2: UIImageView!
     var oldImage: UIImage!
     
     override func viewDidLoad() {
@@ -21,36 +20,39 @@ class ImageAnimationViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         var duration : Double = 0.75
         let currImage = UIImage(named: "dog-baby")
         imageView.setImage(currImage, duration: duration) { (loaded) in
             if (loaded) {
-               
+
             }
         }
-        let newImage = UIImage(named: "frog-baby")
-        duration += duration * 2
-        self.imageView2.setImage(newImage, duration: duration, completion: { (isLoaded) in
-            if (isLoaded) {
-                print("Animated imageView2")
-            } else {
-                print("Did not animate")
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            self.imageView.rotateAnimation()
+            self.imageView.scaleXAnimation()
+            self.imageView.scaleYAnimation()
+            timer.invalidate()
+           
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 3.7, repeats: false) { (timer) in
+            let currImage = UIImage(named: "dog-grown")
+            self.imageView.setImage(currImage, duration: duration) { (loaded) in
+                if (loaded) {
+
+                }
             }
-        })
+        }
+        
     }
 
     @IBAction func levelUp(_ sender: Any) {
         let newImage = UIImage(named: "dog-grown")
         imageView.setImage(newImage, duration: 0.75, completion: nil)
-    }
-}
-
-extension UIImageView {
-    func setImage(_ newImage: UIImage?, animated: Bool = true, duration: Double,  completion: ((Bool) -> Void)?) {
-        UIView.transition(with: self,
-                          duration: duration,
-                          options: .transitionCrossDissolve,
-                          animations: { self.image = newImage },
-                          completion: completion)
     }
 }

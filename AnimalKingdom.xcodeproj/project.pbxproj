@@ -25,6 +25,7 @@
 		70653E4A2579F2E9005192C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E492579F2E9005192C0 /* User.swift */; };
 		70653E4D2579F9EF005192C0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E4C2579F9EF005192C0 /* UserData.swift */; };
 		70653E51257A080B005192C0 /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E50257A080B005192C0 /* LoadingScreenViewController.swift */; };
+		7093A6542583F70B00857A8A /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7093A6532583F70B00857A8A /* AnimationHelper.swift */; };
 		70BA7FE42581EAB40036DD09 /* ImageAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BA7FE32581EAB40036DD09 /* ImageAnimationViewController.swift */; };
 		70BAE3B82577529100A74C4C /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3B72577529100A74C4C /* Animal.swift */; };
 		70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BAE3BC25775F1900A74C4C /* AnimalData.swift */; };
@@ -54,6 +55,7 @@
 		70653E492579F2E9005192C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		70653E4C2579F9EF005192C0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		70653E50257A080B005192C0 /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
+		7093A6532583F70B00857A8A /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		70BA7FE32581EAB40036DD09 /* ImageAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnimationViewController.swift; sourceTree = "<group>"; };
 		70BAE3B72577529100A74C4C /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		70BAE3BC25775F1900A74C4C /* AnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalData.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				70653E452579BF05005192C0 /* HelperTimer.swift */,
+				7093A6532583F70B00857A8A /* AnimationHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				70653E51257A080B005192C0 /* LoadingScreenViewController.swift in Sources */,
 				70BA7FE42581EAB40036DD09 /* ImageAnimationViewController.swift in Sources */,
 				701B428E256B610100437853 /* SceneDelegate.swift in Sources */,
+				7093A6542583F70B00857A8A /* AnimationHelper.swift in Sources */,
 				70653E3225798AEF005192C0 /* AddAnimalViewController.swift in Sources */,
 				70BAE3BD25775F1900A74C4C /* AnimalData.swift in Sources */,
 				70BAE3B82577529100A74C4C /* Animal.swift in Sources */,
