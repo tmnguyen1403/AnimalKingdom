@@ -39,15 +39,18 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         //We have to manually add every single item of our data in a certain interval for the animation to work
         let userData = UserData.shared()
         var indexCounter = 0
-        
+        var delayDuration = 0.0
         //MARK: When adding new animal from LockScreenViewController, only animate the new cell
         if (userData.hasNewPet) {
             self.petUrls = userData.petUrls
             self.petUrls.removeLast()
             print("controller petUrls vs userData petUrls: \(self.petUrls.count) : \(userData.petUrls.count)")
             indexCounter = self.petUrls.count
+            self.levelUpAnimation(oldPet: "egg", newPet: userData.petUrls.last!)
+            delayDuration = 0.5
             userData.resetHasNewPet()
         }
+        //MARK: Users level up one of their pet
         else if (self.levelingAnimal != -1) {
             let index = self.levelingAnimal
             print("I got leveledup")
@@ -56,21 +59,21 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.petUrls[index] = userData.petUrls[index]
             //MARK: perform special animation for this
             self.collectionView?.reloadData()
-            //self.collectionView?.deleteItems(at: [IndexPath(item: index, section: 0)])
-            //self.collectionView?.insertItems(at: [IndexPath(item: index - 1, section: 0)])
             self.levelingAnimal = -1
         }
         
-        //MARK: start animation
-        if (userData.petUrls.count > self.petUrls.count) {
-            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (timer) in
-                self.petUrls.append(userData.petUrls[indexCounter])
-                self.collectionView?.insertItems(at: [IndexPath(item: indexCounter, section: 0)])
-                self.collectionView?.scrollToItem(at: IndexPath(item: indexCounter, section: 0), at: .bottom, animated: true)
-                print("call timer \(indexCounter)")
-                indexCounter += 1
-                if (indexCounter == userData.petUrls.count) {
-                    timer.invalidate()
+        //MARK: start animation after 0.5s
+        Timer.scheduledTimer(withTimeInterval: delayDuration, repeats: false) { (timer) in
+            if (userData.petUrls.count > self.petUrls.count) {
+                Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (timer) in
+                    self.petUrls.append(userData.petUrls[indexCounter])
+                    self.collectionView?.insertItems(at: [IndexPath(item: indexCounter, section: 0)])
+                    self.collectionView?.scrollToItem(at: IndexPath(item: indexCounter, section: 0), at: .bottom, animated: true)
+                    print("call timer \(indexCounter)")
+                    indexCounter += 1
+                    if (indexCounter == userData.petUrls.count) {
+                        timer.invalidate()
+                    }
                 }
             }
         }
@@ -209,3 +212,10 @@ extension PetsGridViewController: LockScreenDelegate {
 }
 
 extension PetsGridViewController: ImageAnimationDelegate {
+    func onAnimationCompete() {
+        self.dismiss(animated: true) {
+            print("Close LevelUp Animation")
+        }
+    }
+}
+
