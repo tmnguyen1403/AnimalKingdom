@@ -14,7 +14,7 @@ class AnimalData {
     private static let sharedAnimalData = AnimalData()
     public private(set) var animals : [Animal]
     public let maxLevel: Int = 2
-    let keys = ["objectId", "name", "level", "imageURL", "duration", "animalId"]
+    let keys = ["objectId", "name", "level", "imageURL", "duration", "animalId", "nickname"]
 
     
     private init() {
