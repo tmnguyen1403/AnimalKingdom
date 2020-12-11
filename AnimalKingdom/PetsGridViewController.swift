@@ -19,6 +19,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
     let columns: CGFloat = 3.0
     let inset: CGFloat = 8.0
     let spacing: CGFloat = 8.0
+    var userAlert: UIAlertController!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -73,6 +74,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return petUrls.count
      }
@@ -93,7 +95,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
             //cell.animalNameLabel.sizeToFit()
             cell.setLevelImageView()
             // MARK: interaction when click on cell
-            let tapRecognizer = AddAnimalRecognizer(target: self, action: #selector(levelUp))
+            let tapRecognizer = AddAnimalRecognizer(target: self, action: #selector(levelUpPressed))
             tapRecognizer.animal = animal
             tapRecognizer.petIndex = indexPath.item
             cell.addGestureRecognizer(tapRecognizer)
@@ -102,36 +104,55 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
      }
     
-    @objc func levelUp(_ sender: AddAnimalRecognizer) {
+    @objc func levelUpPressed(_ sender: AddAnimalRecognizer) {
         let maxLevel: Int = 2
-        if let animal = sender.animal {
-            if (animal.level < maxLevel) {
-                
-                print("I will level up your animal")
-                //MARK: Find the corresponding level up animal
-                let animalId = "\(animal.name)-\(animal.level+1)"
-                if let higherAnimal = AnimalData.shared().animals.first(where: { (myAnimal) -> Bool in
-                    return myAnimal.animalId == animalId
-                }){
-                    //MARK: Go to LockScreenViewController
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let controller = storyboard.instantiateViewController(identifier: "lockscreenViewController") as! LockScreenViewController
-                    
-                    controller.animal = higherAnimal
-                    controller.isLevelUp = true
-                    controller.petIndex = sender.petIndex
-                    controller.delegate = self
-                    self.levelingAnimal = sender.petIndex // MARK: use this to perform animation after completing level up
-                    self.present(controller, animated: true, completion: nil)
-                } else {
-                    print("Cannot find animal to level up")
-                }
-               
-               
-            } else {
-                print("Your animal is at max level")
-                return
-            }
+
+        guard let animal = sender.animal else {
+            print("No target animal")
+            return
+        }
+        if (animal.level < AnimalData.shared().maxLevel) {
+            self.userAlert = UIAlertController(title: "❤️Level 1❤️", message: "Do you want to level up this pet?", preferredStyle: .alert)
+            
+            self.userAlert.addAction(UIAlertAction(title: "Yes", style: .default){ (action) in
+                self.userAlert = nil
+                self.levelUp(mypet: animal, sender)
+            })
+    //
+            self.userAlert.addAction(UIAlertAction(title: "No", style: .cancel){ (action) in
+                self.dismiss(animated: true, completion: nil)
+                self.userAlert = nil
+            })
+        } else {
+            self.userAlert = UIAlertController(title: "🔥Max Level🔥", message: "🐶Your pet has reached the maximum level!🐶", preferredStyle: .alert)
+            self.userAlert.addAction(UIAlertAction(title: "Ok", style: .cancel){ (action) in
+                self.dismiss(animated: true, completion: nil)
+                self.userAlert = nil
+            })
+        }
+        
+        self.present(self.userAlert, animated: true, completion: nil)
+    }
+    
+    func levelUp(mypet animal: Animal, _ sender: AddAnimalRecognizer) {
+        print("I will level up your animal")
+        //MARK: Find the corresponding level up animal
+        let animalId = "\(animal.name)-\(animal.level+1)"
+        if let higherAnimal = AnimalData.shared().animals.first(where: { (myAnimal) -> Bool in
+            return myAnimal.animalId == animalId
+        }){
+            //MARK: Go to LockScreenViewController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(identifier: "lockscreenViewController") as! LockScreenViewController
+            
+            controller.animal = higherAnimal
+            controller.isLevelUp = true
+            controller.petIndex = sender.petIndex
+            controller.delegate = self
+            self.levelingAnimal = sender.petIndex // MARK: use this to perform animation after completing level up
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            print("Cannot find animal to level up")
         }
     }
 }
@@ -156,6 +177,12 @@ extension PetsGridViewController: LockScreenDelegate {
     func onCompleteIncubation() {
         self.dismiss(animated: true, completion: {
             print("dismiss oldview")
+        })
+    }
+    
+    func onCancelIncubation() {
+        self.dismiss(animated: true, completion: {
+            print("PetsGridViewController onCancelIncubation dismissed")
         })
     }
 }
