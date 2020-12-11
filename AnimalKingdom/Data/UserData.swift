@@ -14,12 +14,14 @@ class UserData {
     private static let sharedUserData = UserData()
     public private(set) var pets : [String]
     public private(set) var petUrls : [String]
+    public private(set) var hasNewPet : Bool
     let keys = ["objectId", "username", "pets"]
 
     
     private init() {
         pets = []
         petUrls = []
+        hasNewPet = false
     }
     
     class func shared() -> UserData {
@@ -54,6 +56,7 @@ class UserData {
         if (index >= 0  && index < self.pets.count) {
             self.pets[index] = pet.animalId
             self.petUrls[index] = pet.imageURL
+            self.updatePetListToServer()
         } else {
             print("Invalid index")
         }
@@ -73,9 +76,13 @@ class UserData {
     public func updatePetList(newPet: Animal) {
         self.pets.append(newPet.animalId)
         self.petUrls.append(newPet.imageURL)
+        self.hasNewPet = true
         self.updatePetListToServer()
     }
     
+    public func resetHasNewPet() {
+        self.hasNewPet = false
+    }
     // MARK: Always run this after updatePetList
     public func updatePetListToServer() {
         //UPDATE TO SERVER

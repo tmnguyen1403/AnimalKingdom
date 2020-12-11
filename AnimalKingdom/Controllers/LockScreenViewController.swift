@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LockScreenDelegate: class {
+    func onCompleteIncubation()
+}
+
 class LockScreenViewController: UIViewController {
     
     var animal: Animal!
@@ -25,9 +29,12 @@ class LockScreenViewController: UIViewController {
     
     var userAlert : UIAlertController!
     var isLockButtonPressed: Bool = false
+    
+    //MARK: delegate
+    weak var delegate: LockScreenDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         guard let animal = animal else {
             print("ERROR: NO ANIMAL DATA FOR LOCKSCREEN")
             self.dismiss(animated: true, completion: nil)
@@ -136,7 +143,7 @@ class LockScreenViewController: UIViewController {
             UserData.shared().updatePetList(newPet: self.animal)
         }
         // 4. Go back to PetsGidViewController
-        self.performSegue(withIdentifier: "addNewAnimalCompleteSegue", sender: self)
+        delegate?.onCompleteIncubation()
     }
     
     @IBAction func onCancel(_ sender: Any) {
@@ -144,53 +151,4 @@ class LockScreenViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-}
-
-extension LockScreenViewController: UISceneDelegate {
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        print("Hello enterBackground I am LockScreenViewController")
-    }
-}
-
-@available(iOS 13.0, *)
-extension UIResponder {
-    @objc var scene: UIScene? {
-        return nil
-    }
-}
-
-@available(iOS 13.0, *)
-extension UIScene {
-    @objc override var scene: UIScene? {
-        return self
-    }
-}
-
-@available(iOS 13.0, *)
-extension UIView {
-    @objc override var scene: UIScene? {
-        if let window = self.window {
-            return window.windowScene
-        } else {
-            return self.next?.scene
-        }
-    }
-}
-
-@available(iOS 13.0, *)
-extension UIViewController {
-    @objc override var scene: UIScene? {
-        // Try walking the responder chain
-        var res = self.next?.scene
-        if (res == nil) {
-            // That didn't work. Try asking my parent view controller
-            res = self.parent?.scene
-        }
-        if (res == nil) {
-            // That didn't work. Try asking my presenting view controller
-            res = self.presentingViewController?.scene
-        }
-
-        return res
-    }
 }

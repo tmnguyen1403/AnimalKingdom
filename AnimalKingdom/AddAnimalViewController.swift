@@ -28,11 +28,6 @@ class AddAnimalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        AnimalData.shared().updateData { (error) in
-//            print("Error loading animal data \(error)")
-//        } completionHandler: {
-//            self.configureDataSource()
-//        }
         self.configureHierarchy()
         self.configureDataSource()
     }
@@ -108,6 +103,7 @@ extension AddAnimalViewController {
             }) {
                 controller.animal = animal
                 print("Get controller prepare for segue")
+                controller.delegate = self
 
             }
             
@@ -192,5 +188,31 @@ extension AddAnimalViewController {
 extension AddAnimalViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+}
+
+extension AddAnimalViewController: LockScreenDelegate {
+    func onCompleteIncubation() {
+        self.dismiss(animated: true, completion: {
+            print("AddAnimalViewControllerLockScreenDelegate dismissed")
+        })
+        
+        if let controllers = self.tabBarController?.viewControllers {
+            print("Hey I got tabbar")
+
+            let petViewControllerIndex = controllers.firstIndex { (controller) -> Bool in
+                return controller.restorationIdentifier == "PetsViewController"
+            }
+            if let index = petViewControllerIndex {
+                print("I got petView index \(index)")
+                self.tabBarController?.selectedIndex = index
+            } else {
+                print("Something is not right. Missing petViewController in tabBarController")
+            }
+            
+        }
+    }
+    func showPetViewController() {
+        
     }
 }

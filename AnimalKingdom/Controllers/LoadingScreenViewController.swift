@@ -28,7 +28,9 @@ class LoadingScreenViewController: UIViewController {
                 print("Get user done")
                 // MARK: get all petUrls
                 UserData.shared().addPetUrls(animals: AnimalData.shared().animals)
-                self.performSegue(withIdentifier: "petsViewSegue", sender: self)
+                let sanctuary = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
+                self.view.window?.rootViewController = sanctuary
+                self.show(sanctuary!, sender: self)
             }
         }
     }
