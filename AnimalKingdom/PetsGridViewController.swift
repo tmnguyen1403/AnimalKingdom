@@ -51,6 +51,8 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         else if (self.levelingAnimal != -1) {
             let index = self.levelingAnimal
             print("I got leveledup")
+            self.levelUpAnimation(oldPet: self.petUrls[index], newPet: userData.petUrls[index])
+
             self.petUrls[index] = userData.petUrls[index]
             //MARK: perform special animation for this
             self.collectionView?.reloadData()
@@ -74,6 +76,25 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    func levelUpAnimation(oldPet: String, newPet: String) {
+        print("levelUpAnimation called")
+        let oldImage = UIImage(named: oldPet)
+        let newImage = UIImage(named: newPet)
+        //MARK: Go to ImageAnimationController
+        let controller = self.storyboard?.instantiateViewController(identifier: "ImageAnimationViewController") as? ImageAnimationViewController
+        if let controller = controller {
+            controller.oldImage = oldImage
+            controller.newImage = newImage
+            controller.delegate = self
+            self.present(controller, animated: true) {
+                print("presented levelup animation")
+            }
+        } else {
+            print("Error, Cannot load levelUpAnimation")
+        }
+        
+    }
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return petUrls.count
@@ -91,7 +112,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
             return animal.imageURL == petUrls[indexPath.item]
         }) {
             cell.animal = animal
-            cell.animalNameLabel.text = animal.name
+            cell.animalNameLabel.text = animal.nickname
             //cell.animalNameLabel.sizeToFit()
             cell.setLevelImageView()
             // MARK: interaction when click on cell
@@ -186,3 +207,5 @@ extension PetsGridViewController: LockScreenDelegate {
         })
     }
 }
+
+extension PetsGridViewController: ImageAnimationDelegate {

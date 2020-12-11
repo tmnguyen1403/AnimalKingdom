@@ -22,15 +22,16 @@ class Animal : Codable, Hashable {
     var level : Int
     var imageURL : String
     var duration : Int
+    var nickname: String
     
-    init(objectId: String, animalId: String, name : String, level: Int, imageURL: String, duration : Int) {
+    init(objectId: String, animalId: String, name : String, level: Int, imageURL: String, duration : Int, nickname: String) {
         self.objectId = objectId
         self.animalId = animalId
         self.name = name
         self.level = level
         self.imageURL = imageURL
         self.duration = duration
-        
+        self.nickname = nickname
     }
     
     convenience init?(data : [String : Any]) {
@@ -43,6 +44,10 @@ class Animal : Codable, Hashable {
             print("Cannot parse data for this animal")
             return nil
         }
-        self.init(objectId: objectId, animalId: animalId, name: name, level: level, imageURL: imageURL, duration: duration)
+        var nickname = data["nickname"] as? String
+        if nickname == nil {
+            nickname = "Unknown"
+        }
+        self.init(objectId: objectId, animalId: animalId, name: name, level: level, imageURL: imageURL, duration: duration, nickname: nickname!)
     }
 }

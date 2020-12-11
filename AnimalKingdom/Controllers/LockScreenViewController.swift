@@ -43,7 +43,7 @@ class LockScreenViewController: UIViewController {
         }
         // MARK: animal
         imageView.image = UIImage(named: animal.imageURL)
-        nameLabel.text = animal.name
+        nameLabel.text = animal.nickname
         
         completeButton.isEnabled = true
         // MARK: check if user leave the app

@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol ImageAnimationDelegate: class {
+    func onAnimationCompete()
+}
+
 class ImageAnimationViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     var oldImage: UIImage!
+    var newImage: UIImage!
+    weak var delegate: ImageAnimationDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +30,15 @@ class ImageAnimationViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        var duration : Double = 0.75
-        let currImage = UIImage(named: "dog-baby")
-        imageView.setImage(currImage, duration: duration) { (loaded) in
+        let duration : Double = 0.4
+        imageView.setImage(self.oldImage, duration: duration) { (loaded) in
             if (loaded) {
 
             }
         }
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            //MARK: This animation will take 3.0 seconds
             self.imageView.rotateAnimation()
             self.imageView.scaleXAnimation()
             self.imageView.scaleYAnimation()
@@ -41,10 +47,10 @@ class ImageAnimationViewController: UIViewController {
         }
         
         Timer.scheduledTimer(withTimeInterval: 3.7, repeats: false) { (timer) in
-            let currImage = UIImage(named: "dog-grown")
-            self.imageView.setImage(currImage, duration: duration) { (loaded) in
+            self.imageView.setImage(self.newImage, duration: duration) { (loaded) in
                 if (loaded) {
-
+                    print("Animation completed")
+                    self.delegate?.onAnimationCompete()
                 }
             }
         }
