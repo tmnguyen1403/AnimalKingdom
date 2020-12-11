@@ -14,7 +14,7 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
     var animals = [UIImage]() //images in the assets folder
     var animal_list : [Animal] = []
     var petUrls : [String] = []
-    
+    var levelingAnimal: Int = -1
     // MARK: layout prepare
     let columns: CGFloat = 3.0
     let inset: CGFloat = 8.0
@@ -30,8 +30,6 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
         //collectionView.backgroundView = nil
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +46,16 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
             print("controller petUrls vs userData petUrls: \(self.petUrls.count) : \(userData.petUrls.count)")
             indexCounter = self.petUrls.count
             userData.resetHasNewPet()
+        }
+        else if (self.levelingAnimal != -1) {
+            let index = self.levelingAnimal
+            print("I got leveledup")
+            self.petUrls[index] = userData.petUrls[index]
+            //MARK: perform special animation for this
+            self.collectionView?.reloadData()
+            //self.collectionView?.deleteItems(at: [IndexPath(item: index, section: 0)])
+            //self.collectionView?.insertItems(at: [IndexPath(item: index - 1, section: 0)])
+            self.levelingAnimal = -1
         }
         
         //MARK: start animation
@@ -112,6 +120,8 @@ class PetsGridViewController: UIViewController, UICollectionViewDelegate, UIColl
                     controller.animal = higherAnimal
                     controller.isLevelUp = true
                     controller.petIndex = sender.petIndex
+                    controller.delegate = self
+                    self.levelingAnimal = sender.petIndex // MARK: use this to perform animation after completing level up
                     self.present(controller, animated: true, completion: nil)
                 } else {
                     print("Cannot find animal to level up")
@@ -139,5 +149,13 @@ extension PetsGridViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
+    }
+}
+
+extension PetsGridViewController: LockScreenDelegate {
+    func onCompleteIncubation() {
+        self.dismiss(animated: true, completion: {
+            print("dismiss oldview")
+        })
     }
 }
