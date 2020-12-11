@@ -31,7 +31,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="c9l-hg-gY5"/>
                     <connections>
-                        <segue destination="gJU-sd-jNP" kind="show" identifier="petsViewSegue" id="Bqf-4c-lSc"/>
+                        <segue destination="RLo-m9-Isd" kind="show" identifier="tabBarSegue" id="ARV-Zc-TIh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWL-lU-hdg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -41,7 +41,7 @@
         <!--PetsViewController-->
         <scene sceneID="eBq-XB-Qis">
             <objects>
-                <viewController title="PetsViewController" modalPresentationStyle="fullScreen" id="N8N-uF-O9f" customClass="PetsGridViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PetsViewController" storyboardIdentifier="PetsViewController" title="PetsViewController" modalPresentationStyle="fullScreen" id="N8N-uF-O9f" customClass="PetsGridViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tkD-fa-RVb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Cx-aX-Fi1">
-                                <rect key="frame" x="0.0" y="76" width="414" height="766"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="822"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QMn-Lv-IMt">
@@ -120,12 +120,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xKV-PJ-T26"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="qkH-ku-8Px"/>
                     <navigationItem key="navigationItem" title="Sanctuary" id="DIA-Ej-c9Y">
-                        <barButtonItem key="rightBarButtonItem" title="Add New Pet" id="4Bn-Dp-1Hc">
-                            <connections>
-                                <segue destination="geq-qD-7il" kind="show" id="Vce-im-5WP"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add New Pet" image="plus.app.fill" catalog="system" id="4Bn-Dp-1Hc"/>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="7Cx-aX-Fi1" id="ir4-iE-chw"/>
@@ -133,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2s-0d-zou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813.0434782608697" y="117.85714285714285"/>
+            <point key="canvasLocation" x="2029" y="246"/>
         </scene>
         <!--Add New Pet-->
         <scene sceneID="a57-XD-3WT">
@@ -297,18 +294,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9g-iD-I50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2600" y="596.65178571428567"/>
+            <point key="canvasLocation" x="3901" y="992"/>
         </scene>
-        <!--Add Animal View Controller-->
+        <!--Item-->
         <scene sceneID="j5R-vT-TpO">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="geq-qD-7il" customClass="AddAnimalViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddAnimalViewController" storyboardIdentifier="AddAnimalViewController" modalPresentationStyle="fullScreen" id="geq-qD-7il" customClass="AddAnimalViewController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OHo-ho-4A0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xfH-qW-Htg"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="uea-1P-yfN"/>
                     <navigationItem key="navigationItem" id="N4N-bb-b3J"/>
                     <connections>
                         <segue destination="nBA-dN-8dh" kind="show" identifier="addAnimalSegue" id="lUs-i9-Ydp"/>
@@ -316,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Bw-Hz-fai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3431.884057971015" y="117.85714285714285"/>
+            <point key="canvasLocation" x="3455" y="246"/>
         </scene>
         <!--Image Animation View Controller-->
         <scene sceneID="8ja-Ac-CGR">
@@ -360,7 +358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cld-bE-aZP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4208.695652173913" y="673.66071428571422"/>
+            <point key="canvasLocation" x="5117.3913043478269" y="673.66071428571422"/>
         </scene>
         <!--Lock Screen View Controller-->
         <scene sceneID="8r1-tA-v1f">
@@ -441,36 +439,33 @@
                         <outlet property="imageView" destination="s6F-f1-Hyy" id="BFE-NH-e5J"/>
                         <outlet property="nameLabel" destination="4Ty-kL-xh3" id="xMl-dP-ZQH"/>
                         <outlet property="startTimeLabel" destination="FmV-Jt-Twq" id="2lU-mA-RUU"/>
-                        <segue destination="gJU-sd-jNP" kind="show" identifier="addNewAnimalCompleteSegue" id="HV7-e4-6lZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzO-nM-FFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4100" y="-106.47321428571428"/>
+            <point key="canvasLocation" x="2158" y="1015"/>
         </scene>
-        <!--Sanctuary-->
-        <scene sceneID="2Bf-ih-pUe">
+        <!--My Tab Bar Controller-->
+        <scene sceneID="8yD-4j-jdU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gJU-sd-jNP" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="RLo-m9-Isd" customClass="MyTabBarController" customModule="AnimalKingdom" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Sanctuary" id="wE9-Ri-c2q"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jIm-Rx-J1W">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationItem key="navigationItem" id="CcI-ZY-zrO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jks-Dz-Va7">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="N8N-uF-O9f" kind="relationship" relationship="rootViewController" id="zv1-lJ-etH"/>
+                        <segue destination="N8N-uF-O9f" kind="relationship" relationship="viewControllers" id="eBo-hN-CJO"/>
+                        <segue destination="geq-qD-7il" kind="relationship" relationship="viewControllers" id="kH9-2k-3Yn"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EaH-8N-Kbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FtF-aJ-Jrd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902.89855072463774" y="117.85714285714285"/>
+            <point key="canvasLocation" x="2757" y="-534"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Bqf-4c-lSc"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Level1" width="77" height="137"/>
         <image name="dog-baby" width="1969" height="2640"/>
@@ -480,6 +475,7 @@
         <image name="place 3" width="1300" height="918"/>
         <image name="place3" width="492" height="351"/>
         <image name="place4" width="706" height="490"/>
+        <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -15,6 +15,7 @@
 		701B4293256B610100437853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4291256B610100437853 /* Main.storyboard */; };
 		701B4295256B610200437853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701B4294256B610200437853 /* Assets.xcassets */; };
 		701B4298256B610200437853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701B4296256B610200437853 /* LaunchScreen.storyboard */; };
+		70512B492583546A0063FF84 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70512B482583546A0063FF84 /* MyTabBarController.swift */; };
 		70653E2C25796C66005192C0 /* TitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */; };
 		70653E3225798AEF005192C0 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3125798AEF005192C0 /* AddAnimalViewController.swift */; };
 		70653E3925798B54005192C0 /* AnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70653E3825798B53005192C0 /* AnimalCell.swift */; };
@@ -43,6 +44,7 @@
 		701B4294256B610200437853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		701B4297256B610200437853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		701B4299256B610200437853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70512B482583546A0063FF84 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		70653E2B25796C66005192C0 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
 		70653E3125798AEF005192C0 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		70653E3825798B53005192C0 /* AnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCell.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				70653E402579B7CA005192C0 /* LockScreenViewController.swift */,
 				70653E50257A080B005192C0 /* LoadingScreenViewController.swift */,
+				70512B482583546A0063FF84 /* MyTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				70653E412579B7CA005192C0 /* LockScreenViewController.swift in Sources */,
 				70653E3925798B54005192C0 /* AnimalCell.swift in Sources */,
 				70653E4D2579F9EF005192C0 /* UserData.swift in Sources */,
+				70512B492583546A0063FF84 /* MyTabBarController.swift in Sources */,
 				70653E462579BF05005192C0 /* HelperTimer.swift in Sources */,
 				4C0796382571A7320083B01D /* PetsGridViewController.swift in Sources */,
 				70653E4A2579F2E9005192C0 /* User.swift in Sources */,
