@@ -1,3 +1,12 @@
+## User Stories - Week3
+
+The following **required** functionality is completed:
+
+- [ x] Implemented animation for animal screen.
+- [ x] Implemented animation when leveling up animal.
+- [ x] Implemented animation when adding new animal
+_ [ x] Implemented checking mechanism when user exit the app while incubating new animal
+
 ## User Stories - Week2
 
 The following **required** functionality is completed:
@@ -14,7 +23,7 @@ The following **required** functionality is completed:
 - [ x] Designed the Zoo screen.
 
 ### Demo Lockscreen functionality
-![Lockscreen Demo](./Gif/demo_1.gif)
+![Lockscreen Demo](./Gif/demo_general.gif)
 
 ### Animal Kingdom
 - *Purpose*:
